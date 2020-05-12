@@ -6,25 +6,19 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\DestinationRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-use Ramsey\Uuid\Doctrine\UuidGenerator;
-
 /**
  * @ApiResource()
  * @ORM\Entity(repositoryClass=DestinationRepository::class)
- * @ORM\HasLifecycleCallbacks()
  */
-
 class Destination
 {
     /**
-     * @var \Ramsey\Uuid\UuidInterface
-     *
-     * @ORM\Id
-     * @ORM\Column(type="uuid", unique=true)
-     * @ORM\GeneratedValue(strategy="CUSTOM")
-     * @ORM\CustomIdGenerator(class=UuidGenerator::class)
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer")
      */
-    protected $id;
+    private $id;
+
     /**
      * @ORM\Column(type="string", length=100)
      */
